@@ -66,28 +66,19 @@
 
 	</head>
   <body>
-
+    
+    <!-- <div class="row">
+      <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+        <span>Our Memories</span>
+        <h2>Wedding Gallery</h2>
+        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+      </div>
+    </div> -->
     <div id="fh5co-gallery">
       <div class="container">
-        <div class="row">
-          <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-            <span>Our Memories</span>
-            <h2>Wedding Gallery</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-          </div>
-        </div>
         <div class="row row-bottom-padded-md">
           <div class="col-md-12">
             <ul id="fh5co-gallery-list">
-              
-              <li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url('https://drive.google.com/thumbnail?id=1HOpgs487vNCG1lYoJ-WqJvxCj5pgZ-nZ&sz=w1000'); "> 
-              <a href="images/gallery-1.jpg">
-                <div class="case-studies-summary">
-                  <span>14 Photos</span>
-                  <h2>Two Glas of Juice</h2>
-                </div>
-              </a>
-            </li>
             </ul>		
           </div>
         </div>
@@ -204,8 +195,11 @@
         }
       }
 
+      const gallery = document.getElementById('fh5co-gallery-list');
+      let insertedIds = [];
+
       /**
-       * Print metadata for first 10 files.
+       * Insert images that are not being insert
        */
       async function listFiles() {
         let response;
@@ -214,20 +208,37 @@
             'q': "modifiedTime > '2024-06-01T17:45:00'"
           });
         } catch (err) {
-          document.getElementById('content').innerText = err.message;
+          // document.getElementById('content').innerText = err.message;
           return;
         }
         const files = response.result.files;
-        if (!files || files.length == 0) {
-          document.getElementById('content').innerText = 'No files found.';
+        if (!files || files.leng== 0) {
+          alert('No files found.');
           return;
         }
-        // Flatten to string to display
-        const output = files.reduce(
-            (str, file) => `${str}${file.name} (${file.id})\n`,
-            'Files:\n');
-        console.log("response of google drive:", files);
-        document.getElementById('content').innerText = output;
+        // // Flatten to string to display
+        // const output = files.reduce(
+        //     (str, file) => `${str}${file.name} (${file.id})\n`,
+        //     'Files:\n');
+        // console.log("response of google drive:", files);
+        // document.getElementById('content').innerText = output;
+
+        // const parser = new DOMParser();
+        // const doc = parser.parseFromString(html, "text/html");
+        files.forEach(file => {
+          if(!insertedIds.includes(file.id)) {
+            const templateString = `<li class="one-third" data-animate-effect="fadeIn" style="background-image: url(${`https://drive.google.com/thumbnail?id=${file.id}&sz=w1000`}); ">
+                <a href="#" class="color-2">
+                  <div class="case-studies-summary">
+                  </div>
+                </a>
+              </li>`
+            gallery.insertAdjacentHTML("beforeend",templateString);
+            insertedIds.append(file.id);
+          } else {
+            console.log(`image with id ${file.id} is already added.`);
+          }
+        });
       }
     </script>
     <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
