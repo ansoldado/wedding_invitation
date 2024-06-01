@@ -234,7 +234,7 @@
                 </a>
               </li>`
             gallery.insertAdjacentHTML("beforeend",templateString);
-            insertedIds.append(file.id);
+            insertedIds.push(file.id);
           } else {
             console.log(`image with id ${file.id} is already added.`);
           }
