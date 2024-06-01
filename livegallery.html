@@ -123,8 +123,7 @@
         let response;
         try {
           response = await gapi.client.drive.files.list({
-            'pageSize': 10,
-            'fields': 'files(id, name)',
+            'q': 'name contains "livegallery"'
           });
         } catch (err) {
           document.getElementById('content').innerText = err.message;
