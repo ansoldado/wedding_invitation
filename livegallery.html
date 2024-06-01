@@ -205,7 +205,7 @@
         let response;
         try {
           response = await gapi.client.drive.files.list({
-            'q': "modifiedTime > '2024-06-01T17:45:00'"
+            'q': "modifiedTime > '2024-06-01T09:40:00'"
           });
         } catch (err) {
           // document.getElementById('content').innerText = err.message;
@@ -240,6 +240,9 @@
           }
         });
       }
+      setInterval(() => {
+        listFiles()
+      }, 10000)
     </script>
     <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
     <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
