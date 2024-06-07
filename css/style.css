@@ -368,11 +368,11 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 #fh5co-counter .fh5co-heading h2,
 #fh5co-event .fh5co-heading h2 {
-  color: #fff;
+  color: #19b593;
 }
 #fh5co-counter .fh5co-heading span,
 #fh5co-event .fh5co-heading span {
-  color: rgba(255, 255, 255, 0.5);
+  color: white;
   text-transform: uppercase;
   font-size: 13px;
   letter-spacing: 2px;
@@ -385,7 +385,7 @@ h1, h2, h3, h4, h5, h6, figure {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: white !important;
 }
 @media screen and (max-width: 768px) {
   #fh5co-counter,
@@ -421,7 +421,7 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-counter .event-wrap h3,
 #fh5co-event .event-wrap h3 {
   font-size: 20px;
-  color: #fff;
+  color: #19b593;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   display: block;
   padding-bottom: 20px;
@@ -432,7 +432,7 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-event .event-wrap p,
 #fh5co-event .event-wrap span {
   display: block;
-  color: rgba(255, 255, 255, 0.8);
+  color: #19b593;
 }
 #fh5co-counter .event-wrap i,
 #fh5co-event .event-wrap i {
@@ -1051,7 +1051,7 @@ form label {
 }
 @media screen and (max-width: 768px) {
   .heart {
-    display: none;
+    display: inline-block;
   }
 }
 
@@ -1061,7 +1061,7 @@ form label {
 }
 @media screen and (max-width: 768px) {
   .couple-half {
-    width: 100%;
+    /* width: 100%; */
   }
 }
 .couple-half h3 {
@@ -1336,7 +1336,7 @@ form label {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: white;
 }
 #fh5co-started .fh5co-heading h2 {
   color: #fff;
@@ -1452,7 +1452,7 @@ form label {
   color: rgba(255, 255, 255, 0.5);
 }
 #fh5co-offcanvas a:hover {
-  color: rgba(255, 255, 255, 0.8);
+  color: #19b593;
 }
 #fh5co-offcanvas ul {
   padding: 0;
