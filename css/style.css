@@ -52,6 +52,13 @@ a {
   -o-transition: 0.5s;
   transition: 0.5s;
 }
+
+a.button {
+  color: white;
+  font-size: 2em;
+  border: 4px solid white;
+  padding: 2px;
+}
 a:hover, a:active, a:focus {
   color: #19b593;
   outline: none;

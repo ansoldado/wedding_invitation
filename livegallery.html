@@ -108,6 +108,22 @@
       </div>
     </nav>
   
+	<header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url(images/img_bg_1.jpg);">
+		<div class="overlay"></div>
+		<div class="fh5co-container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center">
+					<div class="display-t">
+						<div class="display-tc animate-box" data-animate-effect="fadeIn">
+							<h1>Live Gallery</h1>
+							<h2>Please help use to remember uploading yout pictures!</h2>
+              <a class="button" href="https://forms.gle/k7aekisCAy3wPF9a8" target="_blank">Upload pictures!</a>
+						</div>
+					</div>
+				</div>
+      </div>
+		</div>
+	</header>
     
     <!-- <div class="row">
       <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
@@ -126,7 +142,6 @@
         </div>
       </div>
     </div>
-    <p>Drive API Quickstart</p>
 
     <!--Add buttons to initiate auth sequence and sign out-->
     <button id="authorize_button" onclick="handleAuthClick()">Authorize</button>
@@ -247,7 +262,7 @@
         let response;
         try {
           response = await gapi.client.drive.files.list({
-            'q': "modifiedTime > '2024-06-01T09:40:00'"
+            'q': "modifiedTime > '2024-07-05T09:40:00'"
           });
         } catch (err) {
           // document.getElementById('content').innerText = err.message;
