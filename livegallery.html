@@ -150,6 +150,26 @@
     <pre id="content" style="white-space: pre-wrap;"></pre>
 
     <script type="text/javascript">
+
+      function ScrollTo(name) {
+        //init thread
+        ScrollToResolver(document.getElementById(name));
+      }
+      
+      function ScrollToResolver(elem) {
+        var jump = parseInt(elem.getBoundingClientRect().top * .2);
+        document.body.scrollTop += jump;
+        document.documentElement.scrollTop += jump;
+        //lastjump detects anchor unreachable, also manual scrolling to cancel animation if scroll > jump
+        if (!elem.lastjump || elem.lastjump > Math.abs(jump)) {
+          elem.lastjump = Math.abs(jump);
+          setTimeout(function() {
+            ScrollToResolver(elem);
+          }, "100");
+        } else {
+          elem.lastjump = null;
+        }
+      }
       /* exported gapiLoaded */
       /* exported gisLoaded */
       /* exported handleAuthClick */
@@ -296,6 +316,7 @@
             console.log(`image with id ${file.id} is already added.`);
           }
         });
+        ScrollTo("button-up");
       }
       setInterval(() => {
         listFiles()
@@ -304,7 +325,7 @@
     <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
     <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
 
-	<div class="gototop js-top">
+	<div class="gototop js-top" id="button-up">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
 	</div>
 	
